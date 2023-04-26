@@ -7,10 +7,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 import ru.test.freebie_coffee2.models.Person;
 
+import java.util.Optional;
+
 @Transactional(readOnly = true)
 public interface CrudPersonRepository extends JpaRepository<Person, Integer> {
     @Transactional
     @Modifying
     @Query("DELETE FROM Person p WHERE p.id=:id")
     int delete(@Param("id") int id);
+
+    Optional<Person> findByEmail(String email);
 }

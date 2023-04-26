@@ -38,4 +38,9 @@ public class DataJpaPersonRepository implements PersonRepository {
     public List<Person> getAll() {
         return crudPersonRepository.findAll(SORT_NAME_EMAIL);
     }
+
+    @Override
+    public Person getByEmail(String email) {
+        return crudPersonRepository.findByEmail(email).orElse(null);
+    }
 }

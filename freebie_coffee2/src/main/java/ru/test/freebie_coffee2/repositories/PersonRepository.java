@@ -13,4 +13,6 @@ public interface PersonRepository {
     Person get(int id);
 
     List<Person> getAll();
+
+    Person getByEmail(String email);
 }
