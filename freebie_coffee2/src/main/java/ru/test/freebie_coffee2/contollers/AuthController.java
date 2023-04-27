@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.test.freebie_coffee2.models.Person;
-import ru.test.freebie_coffee2.services.PersonService;
+import ru.test.freebie_coffee2.services.RegistrationService;
 import ru.test.freebie_coffee2.util.PersonValidator;
 
 import javax.validation.Valid;
@@ -18,12 +18,12 @@ import javax.validation.Valid;
 public class AuthController {
     private final PersonValidator personValidator;
 
-    private final PersonService personService;
+    private final RegistrationService registrationService;
 
     @Autowired
-    public AuthController(PersonValidator personValidator, PersonService personService) {
+    public AuthController(PersonValidator personValidator, RegistrationService registrationService) {
         this.personValidator = personValidator;
-        this.personService = personService;
+        this.registrationService = registrationService;
     }
 
     @GetMapping("/login")
@@ -42,7 +42,7 @@ public class AuthController {
         if (bindingResult.hasErrors()) {
             return "/auth/registration";
         }
-        personService.create(person);
+        registrationService.registration(person);
         return "redirect:/auth/login";
     }
 }
