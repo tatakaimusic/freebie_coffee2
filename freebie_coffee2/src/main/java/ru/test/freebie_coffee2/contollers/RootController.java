@@ -24,7 +24,7 @@ public class RootController {
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("products", productService.getAll());
-        return "index_new";
+        return "index";
     }
 
     @GetMapping("/showUserInfo")
