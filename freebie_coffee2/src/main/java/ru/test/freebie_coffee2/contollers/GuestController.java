@@ -5,14 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.test.freebie_coffee2.services.ProductService;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController extends AbstractRootController {
-    public AdminController(ProductService productService) {
+@RequestMapping("/guest")
+public class GuestController extends AbstractRootController {
+    public GuestController(ProductService productService) {
         super(productService);
     }
 
     @Override
     protected String getIndex() {
-        return "admin/admin_index";
+        return "guest/guest_index";
     }
 }
