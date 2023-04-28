@@ -2,16 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Freebie Coffee</title>
+    <title>Admin page</title>
 </head>
 <body>
-<form action="/auth/login">
-    <button>Войти</button>
-</form>
-
-<form action="/auth/registration">
-    <button>Зарегистрироваться</button>
-</form>
 <section>
     <table border="1" cellpadding="8" cellspacing="0">
         <tr>
@@ -33,6 +26,10 @@
             </tr>
         </div>
     </table>
+    <br/>
+    <form th:action="@{/logout}" th:method="POST">
+        <input type="submit" value="Logout"/>
+    </form>
 </section>
 </body>
 </html>

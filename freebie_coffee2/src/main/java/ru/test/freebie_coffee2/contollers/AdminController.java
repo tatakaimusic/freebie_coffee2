@@ -7,15 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.test.freebie_coffee2.services.ProductService;
 
 @Controller
-@RequestMapping("/index")
-public class RootController extends AbstractRootController {
-    public RootController(ProductService productService) {
+@RequestMapping("/admin")
+public class AdminController extends AbstractRootController {
+
+    public AdminController(ProductService productService) {
         super(productService);
     }
 
-    @GetMapping()
+    @GetMapping("/page")
+    public String adminPage() {
+        return "/admin/page";
+    }
+
+    @GetMapping("/index")
     public String index(Model model) {
         model.addAttribute("products", productService.getAll());
-        return "index";
+        return "admin/admin_index";
     }
 }
