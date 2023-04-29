@@ -112,10 +112,10 @@
             <div class="btn_previous"><img src="/image/arrow.svg" alt=""></div>
             <div class="column_1_carousel_1">
 
-                <div class="row_1_column_1_carousel_1">
+                <div class="row_1_column_1_carousel_1" th:each="product : ${products}">
                     <div class="img_carousel_1"><img src="/image/coffee_1_1.png" alt=""></div>
                     <div class="text_card_carousel_1">
-                        <p class="price">99.000</p>
+                        <p class="price">${product.price}</p>
                         <p class="name_coffee">REVO Morning</p>
                         <p class="taste">Bitter, sweet aftertaste, floral scent</p>
                         <div class="btn_carousel_1_container">
@@ -125,18 +125,7 @@
                     </div>
                 </div>
 
-                <div class="row_1_column_1_carousel_1">
-                    <div class="img_carousel_1"><img src="/image/coffee_1_2.png" alt=""></div>
-                    <div class="text_card_carousel_1">
-                        <p class="price">139.000</p>
-                        <p class="name_coffee">REVO Origin</p>
-                        <p class="taste">Sweet aftertaste, less bitter, strawberry sour taste</p>
-                        <div class="btn_carousel_1_container">
-                            <p class="buy">BUY NOW</p>
-                            <p class="detail">DETAIL</p>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
 
