@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS Image;
 DROP TABLE IF EXISTS Person;
 DROP TABLE IF EXISTS Product;
 DROP SEQUENCE IF EXISTS global_seq;
@@ -16,9 +17,22 @@ CREATE UNIQUE INDEX user_unique_email_idx ON Person (email);
 
 CREATE TABLE Product
 (
-    id          INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-    name        VARCHAR NOT NULL,
-    price       INTEGER NOT NULL,
-    title       VARCHAR NOT NULL,
-    description VARCHAR NOT NULL
+    id             INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    name           VARCHAR NOT NULL,
+    price          INTEGER NOT NULL,
+    title          VARCHAR NOT NULL,
+    description    VARCHAR NOT NULL
+);
+
+CREATE TABLE Image
+(
+    id               INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    product_id       INTEGER NOT NULL,
+    name             VARCHAR NOT NULL,
+    originalFileName VARCHAR NOT NULL,
+    size             BIGINT  NOT NULL,
+    contentType      VARCHAR NOT NULL,
+    isPreviewImage   BOOLEAN NOT NULL,
+    bytes            bytea   NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE CASCADE
 )

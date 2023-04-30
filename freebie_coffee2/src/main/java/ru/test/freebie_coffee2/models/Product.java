@@ -1,11 +1,11 @@
 package ru.test.freebie_coffee2.models;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Product")
@@ -24,6 +24,11 @@ public class Product extends AbstractBaseEntity {
     @Size(min = 2, max = 500)
     private String description;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+    private List<Image> images = new ArrayList<>();
+
+    private Integer previewImageId;
+
     public Product() {
     }
 
@@ -32,6 +37,27 @@ public class Product extends AbstractBaseEntity {
         this.price = price;
         this.title = title;
         this.description = description;
+    }
+
+    public void addImage(Image image) {
+        image.setProduct(this);
+        images.add(image);
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public Integer getPreviewImageId() {
+        return previewImageId;
+    }
+
+    public void setPreviewImageId(Integer previewImageId) {
+        this.previewImageId = previewImageId;
     }
 
     public Integer getPrice() {
