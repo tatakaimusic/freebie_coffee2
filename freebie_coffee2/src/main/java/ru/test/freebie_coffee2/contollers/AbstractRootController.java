@@ -6,15 +6,19 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.test.freebie_coffee2.models.Person;
+import ru.test.freebie_coffee2.repositories.datajpa.CrudImageRepository;
 import ru.test.freebie_coffee2.security.PersonDetails;
 import ru.test.freebie_coffee2.services.ProductService;
 
 public abstract class AbstractRootController {
     protected final ProductService productService;
 
+    protected final CrudImageRepository crudImageRepository;
+
     @Autowired
-    public AbstractRootController(ProductService productService) {
+    public AbstractRootController(ProductService productService, CrudImageRepository crudImageRepository) {
         this.productService = productService;
+        this.crudImageRepository = crudImageRepository;
     }
 
     @GetMapping("/index")

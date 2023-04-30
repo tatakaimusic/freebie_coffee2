@@ -33,7 +33,7 @@
                     <div th:text="${product.getTitle()}"></div>
                 </td>
                 <td>
-                    <img th:src="${product.getImages().get(0)}"/>
+                    <img th:src="@{/image/{id}(id=${product.getImages().get(0).getId()})}" height="60px"/>
                 </td>
             </tr>
         </div>

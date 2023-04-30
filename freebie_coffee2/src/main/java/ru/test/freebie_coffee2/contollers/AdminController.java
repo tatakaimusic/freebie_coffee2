@@ -4,16 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.test.freebie_coffee2.models.Product;
+import ru.test.freebie_coffee2.repositories.datajpa.CrudImageRepository;
 import ru.test.freebie_coffee2.services.ProductService;
 
-import javax.validation.Valid;
 import java.io.IOException;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController extends AbstractRootController {
-    public AdminController(ProductService productService) {
-        super(productService);
+    public AdminController(ProductService productService, CrudImageRepository crudImageRepository) {
+        super(productService, crudImageRepository);
     }
 
     @Override
