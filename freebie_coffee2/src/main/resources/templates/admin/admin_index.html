@@ -19,6 +19,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Title</th>
+            <th>Image</th>
         </tr>
         <div th:each="product : ${products}">
             <tr>
@@ -30,6 +31,9 @@
                 </td>
                 <td>
                     <div th:text="${product.getTitle()}"></div>
+                </td>
+                <td>
+                    <img th:src="${product.getImages().get(0)}"/>
                 </td>
             </tr>
         </div>

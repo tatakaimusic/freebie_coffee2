@@ -11,7 +11,6 @@ import java.util.List;
 @Table(name = "Product")
 public class Product extends AbstractBaseEntity {
     @Column(name = "price", nullable = false)
-    @NotBlank
     private Integer price;
 
     @Column(name = "title", nullable = false)
@@ -24,7 +23,7 @@ public class Product extends AbstractBaseEntity {
     @Size(min = 2, max = 500)
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "product")
     private List<Image> images = new ArrayList<>();
 
     public Product() {

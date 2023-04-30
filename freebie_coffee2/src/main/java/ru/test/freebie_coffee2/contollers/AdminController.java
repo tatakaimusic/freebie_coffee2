@@ -32,12 +32,12 @@ public class AdminController extends AbstractRootController {
     }
 
     @PostMapping("/products/create")
-    public String createProduct(@ModelAttribute("product") @Valid Product product
+    public String createProduct(Product product
             , @RequestParam("file1") MultipartFile file1
             , @RequestParam("file2") MultipartFile file2
             , @RequestParam("file3") MultipartFile file3) throws IOException {
         productService.create(product, file1, file2, file3);
-        return "redirect:/admin/products";
+        return "redirect:/admin/index";
 
     }
 }

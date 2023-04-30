@@ -39,7 +39,6 @@ public class ProductService {
             product.addImage(image3);
         }
         Assert.notNull(product, "product must not be null");
-        Product productFromDb = repository.save(product);
         return repository.save(product);
     }
 

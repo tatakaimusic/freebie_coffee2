@@ -1,5 +1,7 @@
 package ru.test.freebie_coffee2.models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Arrays;
 
@@ -14,11 +16,11 @@ public class Image extends AbstractBaseEntity {
     private String contentType;
     @Column(name = "isPreviewImage")
     private boolean isPreviewImage;
-    @Lob
+    @Type(type = "org.hibernate.type.BinaryType")
+    @Column(name = "bytes")
     private byte[] bytes;
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     private Product product;
-
 
     public String getOriginalFileName() {
         return originalFileName;

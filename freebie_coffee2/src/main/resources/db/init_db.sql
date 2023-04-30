@@ -29,10 +29,10 @@ CREATE TABLE Image
     id               INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     product_id       INTEGER NOT NULL,
     name             VARCHAR NOT NULL,
-    originalFileName VARCHAR NOT NULL,
+    original_file_name VARCHAR NOT NULL,
     size             BIGINT  NOT NULL,
-    contentType      VARCHAR NOT NULL,
-    isPreviewImage   BOOLEAN NOT NULL,
+    content_type      VARCHAR NOT NULL,
+    is_preview_image   BOOLEAN NOT NULL,
     bytes            bytea   NOT NULL,
     FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE CASCADE
 )
