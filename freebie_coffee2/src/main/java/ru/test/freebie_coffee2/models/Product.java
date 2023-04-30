@@ -27,8 +27,6 @@ public class Product extends AbstractBaseEntity {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
     private List<Image> images = new ArrayList<>();
 
-    private Integer previewImageId;
-
     public Product() {
     }
 
@@ -50,14 +48,6 @@ public class Product extends AbstractBaseEntity {
 
     public void setImages(List<Image> images) {
         this.images = images;
-    }
-
-    public Integer getPreviewImageId() {
-        return previewImageId;
-    }
-
-    public void setPreviewImageId(Integer previewImageId) {
-        this.previewImageId = previewImageId;
     }
 
     public Integer getPrice() {
